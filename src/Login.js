@@ -86,10 +86,12 @@ class Login extends Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  
   handleSubmit(e) {
     e.preventDefault();
     let signin = `signin`;
     let signup = `signup`;
+    // if input phone number matched to database username redirect to signin page with phone number
     if (
       this.state.phone === authData.data.username ||
       this.state.phone === authData.data.usernameWithCountryCode
@@ -98,7 +100,9 @@ class Login extends Component {
         pathname: signin,
         data: this.state.phone
       });
-    } else {
+    } 
+    // else redirect to signup page
+    else {
       this.props.history.push(signup);
     }
   }

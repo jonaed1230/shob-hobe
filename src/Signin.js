@@ -207,29 +207,35 @@ const Box = styled.div`
 class Signin extends Component {
   constructor(props) {
     super(props);
+    // states
     this.state = {
       showPassword: false,
       password: "",
       remember: false,
-      numberCorrect: false
+      numberCorrect: false,
+      phone: this.props.history.location.data
     };
+    // bind functions
     this.togglePassword = this.togglePassword.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updatePassword = this.updatePassword.bind(this);
     this.updateRemember = this.updateRemember.bind(this);
   }
+  // toggle password visibility
   togglePassword(e) {
     e.preventDefault();
     this.setState({
       showPassword: !this.state.showPassword
     });
   }
+  // save password to state
   updatePassword(e) {
     var password = e.target.value;
     this.setState({
       password
     });
   }
+  // toggle remember state
   updateRemember(e) {
     e.preventDefault();
     this.setState({
@@ -242,21 +248,22 @@ class Signin extends Component {
     var welcomePage = `welcome`;
     const warning = document.querySelector(".warning");
     const passwordField = document.querySelector(".password-field");
+    // if phone number and database username match, check password, set numberCorrect true
     if (
       this.state.phone === authData.data.username ||
       this.state.phone === authData.data.usernameWithCountryCode
     ) {
+      this.setState({
+        numberCorrect: true
+      });
+      // if password is matched to database password, redirect to welcomepage after 0.5 sec
       if (this.state.password === authData.data.password) {
-        this.setState({
-          numberCorrect: true
-        });
         setTimeout(() => {
           this.props.history.push(welcomePage);
         }, 500);
-      } else {
-        this.setState({
-          numberCorrect: true
-        });
+      } 
+      // else throw error
+      else {
         passwordField.classList.add("wrong-password");
         warning.innerHTML = "Password Incorrect! Please try again";
       }

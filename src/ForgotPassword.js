@@ -124,10 +124,12 @@ const Box = styled.div`
 class ForgotPassword extends Component {
   constructor(props) {
     super(props);
+    // states
     this.state = {
       phone: "",
       numberCorrect: false
     };
+    // bind functions
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleSubmit(e) {
@@ -139,9 +141,11 @@ class ForgotPassword extends Component {
     const phoneNumberField = document.querySelector(
       ".react-phone-number-input"
     );
+    // on form submit set phone state to phoneNumber
     this.setState({
       phone: phoneNumber
     });
+    // if phone number is eqal to username that comes from database redirect to verification page
     if (
       phoneNumber === authData.data.username ||
       phoneNumber === authData.data.usernameWithCountryCode
@@ -155,7 +159,9 @@ class ForgotPassword extends Component {
       submit.classList.add("correct-number");
       error.innerHTML = "";
       phoneNumberField.classList.remove("wrong-password");
-    } else {
+    }
+    // else throw error and reload current window after 1 sec
+    else {
       this.setState({
         numberCorrect: false
       });

@@ -87,6 +87,7 @@ class Signup extends Component {
   }
   handleSubmit(e) {
     e.preventDefault();
+    // redirect to welcome page
     let welcomePage = `welcome`;
     this.props.history.push(welcomePage);
   }

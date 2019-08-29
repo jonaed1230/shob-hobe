@@ -127,10 +127,6 @@ const Box = styled.div`
 class Verify extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      phone: "",
-      numberCorrect: false
-    };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.resendCode = this.resendCode.bind(this);
   }
@@ -141,18 +137,23 @@ class Verify extends Component {
     const input = [...document.querySelectorAll(".input")];
     const arr = input.map(el => el.value);
     const value = arr.join("");
+    // if given code is correct, redirect to reset-password
     if (submit.classList.contains("correct-code")) {
       this.props.history.push("reset-password");
     }
+    // if input code and database code match, make submit button yellow and input box border green
     if (value === authData.data.code) {
       input.map(el => el.classList.add("success"));
       submit.classList.add("correct-code");
-    } else {
+    } 
+    // else throw error
+    else {
       input.map(el => el.classList.add("wrong-code"));
       warning.innerHTML="Wrong Verification Code. Please Enter the Correct Code."
       submit.classList.add("false-code");
     }
   }
+  // if anyone clicked to resend code link reload current page
   resendCode() {
     window.location.reload();
   }

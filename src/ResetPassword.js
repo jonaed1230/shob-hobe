@@ -109,36 +109,42 @@ const Box = styled.div`
 class ResetPassword extends Component {
   constructor(props) {
     super(props);
+    // states
     this.state = {
       showPassword: false,
       showConfirmPassword: false,
       password: "",
       confirmPassword: ""
     };
+    // bind functions
     this.togglePassword = this.togglePassword.bind(this);
     this.toggleConfirmPassword = this.toggleConfirmPassword.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updatePassword = this.updatePassword.bind(this);
     this.updateConfirmPassword = this.updateConfirmPassword.bind(this);
   }
+  // make password data visible or unvisible
   togglePassword(e) {
     e.preventDefault();
     this.setState({
       showPassword: !this.state.showPassword
     });
   }
+  // make password data visible or unvisible
   toggleConfirmPassword(e) {
     e.preventDefault();
     this.setState({
       showConfirmPassword: !this.state.showConfirmPassword
     });
   }
+  // save password data to state
   updatePassword(e) {
     var password = e.target.value;
     this.setState({
       password
     });
   }
+  // save password data to state
   updateConfirmPassword(e) {
     var password = e.target.value;
     this.setState({
@@ -151,9 +157,12 @@ class ResetPassword extends Component {
     const signin = "signin";
     const warning = document.querySelector(".warning");
     const passwordField = [...document.querySelectorAll(".password-field")];
+    // if both of password data match, redirect to signin page
     if (this.state.password === this.state.confirmPassword) {
       this.props.history.push(signin);
-    } else {
+    } 
+    // otherwise throw error
+    else {
       passwordField.map(el => el.classList.add("wrong-password"));
       warning.innerHTML = "Passwords Didn't Match! Please Try Again";
     }

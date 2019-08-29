@@ -11,7 +11,7 @@ import ResetPassword from "./ResetPassword";
 
 function App() {
   return (
-    // Routers
+    // Routes of all paths
     <Router>
       <Route exact path="/" component={Login} />
       <Route exact path="/signup" component={Signup} />
