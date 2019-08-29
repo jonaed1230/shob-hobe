@@ -1,6 +1,49 @@
+@font-face {
+  font-family: "Apercu";
+  font-style: normal;
+  font-weight: 400;
+  src: url('./components/fonts/Apercu_Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Apercu";
+  font-style: medium;
+  font-weight: 600;
+  src: url('./components/fonts/Apercu_Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Apercu";
+  font-style: bold;
+  font-weight: 800;
+  src: url('./components/fonts/Apercu_Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Apercu";
+  font-style: italic;
+  font-weight: 400;
+  src: url('./components/fonts/Apercu_Italic.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Apercu";
+  font-style: italic;
+  font-weight: 600;
+  src: url('./components/fonts/Apercu_Medium_Italic.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Apercu";
+  font-style: italic;
+  font-weight: 800;
+  src: url('./components/fonts/Apercu_Bold_Italic.woff') format('woff');
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  text-align: center;
+  font-family: "Apercu" ,-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
