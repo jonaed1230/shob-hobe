@@ -189,7 +189,7 @@ class Verify extends Component {
               </p>
               <input className="submit" type="submit" value="Submit" />
             </form>
-            <Link className="back-page-link" to={`/forgot-password`}>
+            <Link className="back-page-link" to={"/forgot-password"}>
               Back
             </Link>
           </div>
